@@ -8,10 +8,22 @@ spring:
     url: jdbc:mysql://124.220.101.118:3306/ape-frame?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=false
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
-      initial-size: 20
+      initial-size: 5
       min-idle: 20
       max-active: 100
-      max-wait: 60000
-mybatis-plus:
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+      max-wait: 600000
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+        login-username: fjh
+        login-password: 123456
+      filter:
+        stat:
+          enabled: true
+          log-slow-sql: true
+          slow-sql-millis: 20000
+        wall:
+          enabled: true
+sql:
+  beauty:
+    show: true

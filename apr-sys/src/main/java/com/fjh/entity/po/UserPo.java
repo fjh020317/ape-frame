@@ -1,8 +1,7 @@
 package com.fjh.entity.po;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
+import com.fjh.entity.BaseEntity;
 import lombok.Data;
 
 import java.util.Date;
@@ -10,7 +9,7 @@ import java.util.Date;
 @Data
 @TableName("user")
 
-public class UserPo {
+public class UserPo extends BaseEntity {
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
@@ -18,15 +17,4 @@ public class UserPo {
 
     private Integer age;
 
-    private String createBy;
-
-    private Date createTime;
-
-    private String updateBy;
-
-    private Date updateTime;
-
-    private Integer deleteFlag;
-
-    private Integer version;
 }
